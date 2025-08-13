@@ -1,4 +1,6 @@
-       import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'calendar_page.dart';// Import your CalendarPage
+import 'task_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,10 +13,10 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   // Pages for each tab
-  static const List<Widget> _pages = <Widget>[
-    Center(child: Text(" Task", style: TextStyle(fontSize: 24))),
-    Center(child: Text(" Calender", style: TextStyle(fontSize: 24))),
-    Center(child: Text(" Habit", style: TextStyle(fontSize: 24))),
+  final List<Widget> _pages = [
+    const TodoPage(),
+    const CalendarPage(), // Connected to CalendarPage
+    const Center(child: Text("Habit", style: TextStyle(fontSize: 24))),
   ];
 
   // When a tab is tapped
@@ -27,12 +29,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex], // show the page based on index
+      body: _pages[_selectedIndex], // Show the selected page
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.blue, // active icon color
-        unselectedItemColor: Colors.grey, // inactive icon color
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.list_alt),
@@ -40,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_month_outlined),
-            label: 'Calender',
+            label: 'Calendar',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.access_time),
@@ -51,4 +53,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
