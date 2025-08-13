@@ -91,7 +91,7 @@ class _TodoPageState extends State<TodoPage> {
                         ),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.delete, color: Colors.grey),
+                        icon: const Icon(Icons.delete, color: Colors.black45),
                         onPressed: () => _deleteTask(index),
                       ),
                     ],
