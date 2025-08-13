@@ -61,9 +61,14 @@ class _TodoPageState extends State<TodoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          style: TextStyle(backgroundColor: Colors.transparent),
-          'to do list ',
+        title: Center(
+          child: const Text(
+            style: TextStyle(
+              backgroundColor: Colors.transparent,
+              fontStyle: FontStyle.italic,
+            ),
+            'To do list ',
+          ),
         ),
       ),
       body: _tasks.isEmpty
